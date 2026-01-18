@@ -11,7 +11,7 @@ namespace Game.Ability
         [Header("Slot system")]
         [SerializeField] private int maxSlots = 3;
 
-        [Header("Ability Owned List")]
+        [Header("Current Equipped Abilities")]
         [SerializeField] private List<AbilityData> equippedAbilities = new();
 
         private readonly Dictionary<AbilityData, AbilityBase> _abilityLookup = new();
