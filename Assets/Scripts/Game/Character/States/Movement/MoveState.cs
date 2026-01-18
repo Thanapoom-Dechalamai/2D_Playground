@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Character.States
+namespace Game.Character.States.Movement
 {
     public class MoveState : CharacterState
     {

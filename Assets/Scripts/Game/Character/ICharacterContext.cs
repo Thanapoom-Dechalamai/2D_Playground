@@ -14,4 +14,12 @@ namespace Game.Character
     {
         Vector2 GetMoveIntent();
     }
+
+    public interface IDashable
+    {
+        bool StartDash(Vector2 direction, float speed, float duration, bool lockMovement = true);
+
+        void CancelDash();
+    }
+
 }
