@@ -28,21 +28,25 @@ namespace Game.Ability
             _classComponent = GetComponent<ClassComponent>();
 
             var abilities = GetComponentsInChildren<AbilityBase>(includeInactive: true);
-            foreach (var a in abilities)
+            foreach (var ability in abilities)
             {
-                if (a == null) continue;
-                var key = a.Data;
-                if (key != null)
+                if (ability == null) continue;
+                var data = ability.Data;
+                if (data != null)
                 {
-                    _abilityLookup[key] = a;
-                    if (!string.IsNullOrEmpty(key.abilityId)) _abilityIdLookup[key.abilityId] = key;
+                    _abilityLookup[data] = ability;
+
+                    if (!string.IsNullOrEmpty(data.abilityId))
+                    {
+                        _abilityIdLookup[data.abilityId] = data;
+                    }
                 }
                 else
                 {
-                    _abilityLookup.TryAdd(null, a);
+                    _abilityLookup.TryAdd(null, ability);
                 }
 
-                if (_owner != null) a.BindOwner(_owner);
+                if (_owner != null) ability.BindOwner(_owner);
             }
 
             while (equippedAbilities.Count < maxSlots) equippedAbilities.Add(null);
