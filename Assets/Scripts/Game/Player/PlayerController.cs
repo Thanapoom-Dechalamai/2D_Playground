@@ -56,10 +56,10 @@ namespace Game.Player
 
         private void FixedUpdate()
         {
-            NewMethod();
+            CaculateVelocity();
         }
 
-        private void NewMethod()
+        private void CaculateVelocity()
         {
             Vector2 newPos = Rigidbody.position + _movementVelocity * UnityEngine.Time.fixedDeltaTime;
             Rigidbody.MovePosition(newPos);
